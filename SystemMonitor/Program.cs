@@ -66,6 +66,7 @@ namespace SystemMonitor
 
                 //Will print CPU load percentage to the console
                 Console.WriteLine("CPU load: {0}%", currentCPU);
+                Jarvis.Speak(currentCPU.ToString());
                 
                 //Output the available memory
                 Console.WriteLine("Available Memory: {0} MB", currentMem);
@@ -74,15 +75,16 @@ namespace SystemMonitor
                 //Make Jarvis alert you when your system is having CPU usage > 75% and/or Memory is less than 1 gig (1024 mb)
                 if(currentCPU > 75)
                 {
-                    if (currentCPU == 95)
+                    if (currentCPU == 99)
                     {
-                        string vocalCPUMessage = String.Format("The CPU IS FRYING!");
+                        string vocalCPUMessage = String.Format("WARNING! WARNING! The CPU IS FRYING!");
                         Jarvis.Speak(vocalCPUMessage);
                     }
 
                     else
-                    { string vocalCPUMessage = String.Format("The CPU load is: {0} percent", currentCPU);
-                    Jarvis.Speak(vocalCPUMessage);
+                    { 
+                        string vocalCPUMessage = String.Format("The CPU load is: {0} percent", currentCPU);
+                        Jarvis.Speak(vocalCPUMessage);
                     }
                 }
                 if (currentMem < 1024)
